@@ -1,1 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CatGPT — Your cat has opinions. We have AI. Upload a cat photo and get a hilarious AI-style CatGPT Report.">
+    <title>CatGPT 🐾 — Your cat has opinions. We have AI.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+    <!-- ============ NAVIGATION ============ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#top" class="nav-brand" aria-label="CatGPT home">🐾 CatGPT</a>
+
+            <ul class="nav-links">
+                <li><a href="#top">Home</a></li>
+                <li><a href="#analyze">Analyze</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <main id="top">
+
+        <!-- ============ HERO SECTION ============ -->
+        <section class="hero" aria-label="CatGPT hero">
+
+            <div class="hero-bg" aria-hidden="true">
+                <span class="paw paw-1">🐾</span>
+                <span class="paw paw-2">🐾</span>
+                <span class="paw paw-3">🐾</span>
+                <span class="paw paw-4">🐾</span>
+
+                <span class="orb orb-1" aria-hidden="true"></span>
+                <span class="orb orb-2" aria-hidden="true"></span>
+                <span class="orb orb-3" aria-hidden="true"></span>
+            </div>
+
+            <div class="hero-content">
+                <p class="hero-eyebrow">🐈 MADE FOR CURIOUS CAT HUMANS</p>
+
+                <h1 class="hero-title">
+                    <span class="gradient-text">Your cat has opinions.</span><br>
+                    We have <span class="ai-pill">AI</span>.
+                </h1>
+
+                <p class="hero-subtitle">
+                    Upload your cat. Ask what you want to know.
+                    Let CatGPT investigate what your cat might be thinking.
+                </p>
+
+                <a href="#analyze" class="btn btn-primary btn-hero">
+                    ASK CATGPT 🐾
+                </a>
+
+                <p class="hero-note">
+                    100% entertainment. 0% science. 100% protein.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- ============ HOW IT WORKS ============ -->
+        <section class="how" aria-label="How CatGPT works">
+
+            <div class="container">
+
+                <h2 class="section-title">How CatGPT Works</h2>
+
+                <p class="section-subtitle">
+                    Give CatGPT the evidence. Ask your questions. Get the cat's answers.
+                </p>
+
+                <div class="how-grid">
+
+                    <article class="how-card">
+                        <span class="how-number">01</span>
+                        <h3>Upload</h3>
+                        <p>Upload your suspicious little creature.</p>
+                    </article>
+
+                    <article class="how-card">
+                        <span class="how-number">02</span>
+                        <h3>Ask</h3>
+                        <p>Choose what you want to know about your cat.</p>
+                    </article>
+
+                    <article class="how-card">
+                        <span class="how-number">03</span>
+                        <h3>Analyze</h3>
+                        <p>Let CatGPT investigate the evidence.</p>
+                    </article>
+
+                    <article class="how-card">
+                        <span class="how-number">04</span>
+                        <h3>Receive Report</h3>
+                        <p>Get answers to exactly what you asked.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============ ANALYSIS / UPLOAD SECTION ============ -->
+        <section class="analyze" id="analyze" aria-label="Cat analysis">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Let's investigate the cat. 🕵️🐈
+                </h2>
+
+                <p class="section-subtitle">
+                    Upload your evidence. Tell CatGPT what you want to know.
+                    Prepare for the truth.
+                </p>
+
+
+                <!-- ============ CAT IMAGE UPLOAD ============ -->
+
+                <div class="upload-wrap" id="upload-wrap">
+
+                    <!-- Empty / drop state -->
+                    <div
+                        class="upload-card"
+                        id="upload-card"
+                        role="button"
+                        tabindex="0"
+                        aria-label="Upload a cat photo"
+                    >
+
+                        <div class="upload-icon">🐾</div>
+
+                        <h3 class="upload-title">
+                            Drop your cat here
+                        </h3>
+
+                        <p class="upload-text">
+                            Upload a photo and let CatGPT investigate.
+                        </p>
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="choose-photo-btn"
+                        >
+                            Choose Photo
+                        </button>
+
+                        <input
+                            type="file"
+                            id="cat-input"
+                            accept="image/*"
+                            hidden
+                        >
+
+                        <p class="upload-hint">
+                            JPG or PNG. One cat per upload. We accept chaos.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Image Preview -->
+                    <div class="preview-card" id="preview-card" hidden>
+
+                        <div class="preview-frame">
+
+                            <img
+                                id="cat-preview"
+                                alt="Your cat, ready for analysis"
+                            >
+
+                            <span
+                                class="scan-line"
+                                aria-hidden="true"
+                            ></span>
+
+                            <span class="scan-badge">
+                                AI SCANNING MODE
+                            </span>
+
+                        </div>
+
+                        <p class="preview-status">
+                            ✓ Photo ready for analysis
+                        </p>
+
+                        <div class="preview-actions">
+
+                            <button
+                                type="button"
+                                class="btn btn-secondary btn-sm"
+                                id="change-photo-btn"
+                            >
+                                Change photo
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-ghost btn-sm"
+                                id="remove-photo-btn"
+                            >
+                                Remove
+                            </button>
+
+                        </div>
+                    </div>
+
+
+                    <p
+                        class="form-error"
+                        id="upload-error"
+                        role="alert"
+                        hidden
+                    ></p>
+
+                </div>
+
+
+                <!-- ============ OPTIONAL SOUND ============ -->
+
+                <div class="option-group" id="sound-upload-group">
+
+                    <h3 class="option-heading">
+                        🎙️ Want to give CatGPT a sound clue?
+                    </h3>
+
+                    <p class="sound-note">
+                        Optional — you can analyze your cat with a photo alone,
+                        or add a meow/sound for extra evidence.
+                    </p>
+
+                    <div class="upload-card">
+
+                        <div class="upload-icon">🎙️</div>
+
+                        <h3 class="upload-title">
+                            Add Cat Sound
+                        </h3>
+
+                        <p class="upload-text">
+                            Record or upload a cat sound.
+                        </p>
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="choose-sound-btn"
+                        >
+                            Choose Sound
+                        </button>
+
+                        <input
+                            type="file"
+                            id="cat-sound-input"
+                            accept="audio/*"
+                            hidden
+                        >
+
+                        <p
+                            class="upload-hint"
+                            id="sound-status"
+                        >
+                            Optional. You can skip this.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ============ WHAT DO YOU WANT TO KNOW? ============ -->
+
+                <form class="options-form" id="options-form">
+
+                    <fieldset
+                        class="option-group"
+                        id="question-group"
+                    >
+
+                        <legend class="option-heading">
+                            🔍 What do you want to know about this cat?
+                        </legend>
+
+                        <p class="sound-note">
+                            Choose one or more questions. CatGPT will answer
+                            only the things you select.
+                        </p>
+
+                        <div
+                            class="option-list"
+                            id="question-list"
+                        ></div>
+
+                    </fieldset>
+
+
+                    <!-- ============ LANGUAGE ============ -->
+
+                    <fieldset
+                        class="option-group"
+                        id="language-group"
+                    >
+
+                        <legend class="option-heading">
+                            🌐 Choose your language
+                        </legend>
+
+                        <div
+                            class="option-list"
+                            id="language-list"
+                        ></div>
+
+                    </fieldset>
+
+
+                    <!-- ============ RESPONSE STYLE ============ -->
+
+                    <fieldset
+                        class="option-group"
+                        id="style-group"
+                    >
+
+                        <legend class="option-heading">
+                            ✨ How should CatGPT talk?
+                        </legend>
+
+                        <div
+                            class="option-list"
+                            id="style-list"
+                        ></div>
+
+                    </fieldset>
+
+                </form>
+
+
+                <!-- ============ MAIN CTA ============ -->
+
+                <div class="cta-wrap">
+
+                    <button
+                        type="button"
+                        class="btn btn-primary btn-cta"
+                        id="ask-catgpt-btn"
+                    >
+                        ASK CATGPT 🐾
+                    </button>
+
+                    <p class="cta-note">
+                        Ask anything about your cat. CatGPT will investigate.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============ LOADING / ANALYSIS ============ -->
+
+        <section
+            class="loading"
+            id="loading"
+            aria-live="polite"
+            hidden
+        >
+
+            <div class="container loading-inner">
+
+                <div class="loader">
+
+                    <span
+                        class="loader-ring"
+                        aria-hidden="true"
+                    ></span>
+
+                    <span
+                        class="loader-paw"
+                        aria-hidden="true"
+                    >
+                        🐾
+                    </span>
+
+                </div>
+
+                <h2 class="loading-title">
+                    CatGPT is investigating…
+                </h2>
+
+                <p
+                    class="loading-message"
+                    id="loading-message"
+                >
+                    Scanning whiskers...
+                </p>
+
+                <div
+                    class="loading-dots"
+                    aria-hidden="true"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============ CATGPT REPORT ============ -->
+
+        <section
+            class="report"
+            id="report"
+            aria-label="CatGPT Report"
+            hidden
+        >
+
+            <div class="container">
+
+                <header class="report-header">
+
+                    <p class="report-eyebrow">
+                        RESULTS ARE IN
+                    </p>
+
+                    <h2 class="report-title">
+                        🐾 CATGPT REPORT
+                    </h2>
+
+                    <p
+                        class="report-subtitle"
+                        id="report-subtitle"
+                    >
+                        Analysis complete. We have concerns.
+                    </p>
+
+                </header>
+
+
+                <div class="report-grid">
+
+                    <!-- Cat image card -->
+
+                    <article class="report-card report-photo span-third">
+
+                        <img
+                            id="report-photo"
+                            alt="The investigated cat"
+                            class="report-photo-img"
+                        >
+
+                        <p class="report-photo-caption">
+                            SUBJECT:
+                            <span id="report-subject">
+                                THE CAT
+                            </span>
+                        </p>
+
+                    </article>
+
+
+                    <!-- Mood card -->
+
+                    <article class="report-card mood-card span-third">
+
+                        <p class="card-label">
+                            AI ESTIMATED MOOD
+                        </p>
+
+                        <p
+                            class="mood-emoji"
+                            id="report-mood-emoji"
+                        >
+                            😐
+                        </p>
+
+                        <h3
+                            class="mood-name"
+                            id="report-mood-name"
+                        >
+                            JUDGING
+                        </h3>
+
+                        <div class="score-bar">
+                            <span
+                                class="score-fill"
+                                id="report-mood-bar"
+                            ></span>
+                        </div>
+
+                        <p
+                            class="card-score"
+                            id="report-mood-score"
+                        >
+                            87% visual confidence
+                        </p>
+
+                        <p
+                            class="card-text"
+                            id="report-mood-text"
+                        >
+                            That face says you have disappointed this cat somehow.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Personality card -->
+
+                    <article class="report-card personality-card span-third">
+
+                        <p class="card-label">
+                            🧠 PERSONALITY
+                        </p>
+
+                        <h3
+                            class="personality-name"
+                            id="report-personality"
+                        >
+                            PROFESSIONAL MENACE
+                        </h3>
+
+                        <p
+                            class="card-text"
+                            id="report-personality-text"
+                        >
+                            Looks innocent. Has probably already planned something against your curtains.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Current thought -->
+
+                    <article class="report-card thought-card span-half">
+
+                        <p class="card-label">
+                            💭 CURRENT THOUGHT
+                        </p>
+
+                        <p
+                            class="thought-text"
+                            id="report-thought"
+                        >
+                            "Why are you pointing that rectangle at me?"
+                        </p>
+
+                    </article>
+
+
+                    <!-- Cat → Human translation -->
+
+                    <article class="report-card translation-card span-half">
+
+                        <p class="card-label">
+                            🗣️ CAT → HUMAN TRANSLATION
+                        </p>
+
+                        <p class="translation-cat">
+                            CAT:
+                            <span id="report-cat-sound">
+                                Meow.
+                            </span>
+                        </p>
+
+                        <p
+                            class="translation-human"
+                            id="report-translation"
+                        >
+                            Food. Now. We can discuss your life choices later.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Human compatibility -->
+
+                    <article class="report-card compatibility-card span-half">
+
+                        <p class="card-label">
+                            ❤️ HUMAN COMPATIBILITY
+                        </p>
+
+                        <p
+                            class="big-stat"
+                            id="report-compat-score"
+                        >
+                            82%
+                        </p>
+
+                        <div class="score-bar">
+                            <span
+                                class="score-fill compat-fill"
+                                id="report-compat-bar"
+                            ></span>
+                        </div>
+
+                        <p
+                            class="card-text"
+                            id="report-compat-text"
+                        >
+                            Acceptable human. Could improve snack delivery speed.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Threat level -->
+
+                    <article class="report-card threat-card span-half">
+
+                        <p class="card-label">
+                            ⚠️ THREAT LEVEL
+                        </p>
+
+                        <h3
+                            class="threat-name"
+                            id="report-threat"
+                        >
+                            EXTREME
+                        </h3>
+
+                        <div class="score-bar">
+                            <span
+                                class="score-fill threat-fill"
+                                id="report-threat-bar"
+                            ></span>
+                        </div>
+
+                        <p
+                            class="card-score"
+                            id="report-threat-score"
+                        >
+                            91%
+                        </p>
+
+                        <p
+                            class="card-text"
+                            id="report-threat-text"
+                        >
+                            Do not touch the tail. I repeat. DO NOT TOUCH THE TAIL.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Recommended human action -->
+
+                    <article class="report-card action-card span-full">
+
+                        <p class="card-label">
+                            🐾 RECOMMENDED HUMAN ACTION
+                        </p>
+
+                        <h3
+                            class="action-text"
+                            id="report-action"
+                        >
+                            Offer snack.
+                        </h3>
+
+                    </article>
+
+
+                    <!-- Cat roast -->
+
+                    <article class="report-card roast-card span-full">
+
+                        <p class="card-label">
+                            🔥 CAT ROAST
+                        </p>
+
+                        <p
+                            class="roast-text"
+                            id="report-roast"
+                        >
+                            Bro sleeps 17 hours a day and still looks exhausted.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Cat status -->
+
+                    <article class="report-card status-card span-full">
+
+                        <p class="card-label">
+                            👑 CURRENT STATUS
+                        </p>
+
+                        <h3
+                            class="status-text"
+                            id="report-status"
+                        >
+                            HOUSEHOLD CEO
+                        </h3>
+
+                    </article>
+
+
+                    <!-- Statistics -->
+
+                    <article class="report-card stats-card span-full">
+
+                        <p class="card-label">
+                            📊 CAT STATISTICS
+                        </p>
+
+                        <div
+                            class="stat-list"
+                            id="report-stats"
+                        ></div>
+
+                    </article>
+
+
+                    <!-- Report actions -->
+
+                    <div class="report-actions">
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="again-btn"
+                        >
+                            Analyze Again
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="surprise-btn"
+                        >
+                            🎲 Surprise Me
+                        </button>
+
+                    </div>
+
+
+                    <p class="report-disclaimer">
+                        CatGPT scores are entertainment estimates based on visible cues.
+                        Not scientifically validated. Not veterinary advice.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============ ABOUT / FOOTER ============ -->
+
+        <footer
+            class="footer"
+            id="about"
+        >
+
+            <div class="container footer-inner">
+
+                <h2 class="footer-brand">
+                    🐾 CatGPT
+                </h2>
+
+                <p class="footer-tagline">
+                    Your cat has opinions. We have AI.
+                </p>
+
+                <p class="footer-note">
+                    Built as a fun experimental project.
+                    No cats were harmed in the making of this software.
+                </p>
+
+                <p class="footer-disclaimer">
+                    CatGPT is an entertainment experiment.
+                    Its cat analysis is not scientifically validated or veterinary advice.
+                    If your cat seems unwell, please consult a real vet.
+                    We are not real. The cat is real.
+                </p>
+
+            </div>
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
